@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<!-- <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
   </h1>
@@ -16,5 +16,18 @@
   <li>
     <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
   </li>
-</ul>
+</ul> -->
+<h2>store practice</h2>
+<ul>
+  <li>
+    <h2><a [routerLink]="['/child']">child</a></h2>
+  </li>
+  <li>
+    <h2><a [routerLink]="['/father']">father</a></h2>
+  </li>
+  <li>
+    <h2><a [routerLink]="['/list']">list</a></h2>
+  </li>
+</ul> 
+<router-outlet></router-outlet>
 
