@@ -29,11 +29,11 @@ export class ListComponent implements OnInit {
     //     this.store.dispatch(saveObjects({item : 4}));
     // });
     this.response = [
-      {name: 'joel'},
-      {name: 'miguel'},
-      {name: 'daniel'},
-      {name: 'samael'},
-      {name: 'jonuel'},
+      {id: 0, name: 'joel'},
+      {id: 1, name: 'miguel'},
+      {id: 2, name: 'daniel'},
+      {id: 3, name: 'samael'},
+      {id: 4, name: 'jonuel'},
     ];
     this.store.dispatch(new AddItemsAction(this.response));
   }
