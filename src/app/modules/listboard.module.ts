@@ -4,7 +4,7 @@ import * as Listboard from '../store/list/list.reducer';
 
 @NgModule({
 	imports: [
-			StoreModule.forFeature('list', Listboard.reducer)
+		StoreModule.forFeature('list', Listboard.reducer)
 	],
 })
 

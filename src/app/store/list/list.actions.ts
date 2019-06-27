@@ -1,6 +1,6 @@
-import { createAction, props } from '@ngrx/store';
+import { Action ,createAction, props } from '@ngrx/store';
 
 export const saveObjects = createAction(
     '[List] SaveObjects',
-    props<{ item : number }>()
+    props<{ items : Object[] }>()
 );

@@ -1,6 +1,6 @@
 <h1>List detail component number : {{item_id}}, count: {{count$ | async }}</h1>
-<!-- <ul *ngIf="objects$">
-	<li *ngFor="let item of objects$ | async">
-			{{item.name}}
+<ul *ngIf="items">
+	<li *ngFor="let item of items">
+		{{item.name}}
 	</li>
-</ul> -->
+</ul>

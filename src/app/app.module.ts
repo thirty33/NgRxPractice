@@ -2,8 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import {CommonModule} from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
-import {ListBoardModule} from './modules/listboard.module' 
-import {CountModule} from './modules/count.module' 
+import {ListBoardModule} from './modules/listboard.module';
+import {CountModule} from './modules/count.module'; 
+import {ItemsModule} from './modules/items.module';  
 
 
 import { NgModule } from '@angular/core';
@@ -41,7 +42,8 @@ const appRoutes: Routes = [
     // StoreModule.forRoot({ count : counterReducer })
     StoreModule.forRoot({}),
     ListBoardModule,
-    CountModule
+    CountModule,
+    ItemsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

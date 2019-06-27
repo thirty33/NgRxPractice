@@ -3,7 +3,9 @@ import { from } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-
+import { increment, decrement, reset } from '../../store/counter/counter.actions';
+import { saveObjects } from '../../store/list/list.actions';
+import {AppState} from '../../store/state/app-state';
 
 @Component({
   selector: 'app-list-detail',
@@ -13,6 +15,7 @@ import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 
 export class ListDetailComponent implements OnInit {
   item_id: any;
+  items: Object[] = [];
   // objects$: Observable<Object[]> = this.store.select(state => state.list);
   objects$: Observable<any>;
   // objects$: Array<Object>;
@@ -20,14 +23,18 @@ export class ListDetailComponent implements OnInit {
 
 	constructor(private route: ActivatedRoute,
     private _router: Router,
-    private store: Store<{count:number,list: any}>) {
-      // this.objects$ = store.pipe(select('list'));
-      // this.objects$ = this.store.select(state => state.list.list);
-      console.log("those is objects", this.objects$);
-      this.count$ = store.pipe(select('count'));
-  }
+    private store: Store<AppState>) {}
 
   ngOnInit() {
-		this.item_id = this.route.snapshot.paramMap.get('id');
+    this.item_id = this.route.snapshot.paramMap.get('id');
+    this.store.pipe(select(state => state.itemsState))
+    .subscribe(items => {
+      console.log('entering in suscribe');
+      if(items){
+        console.log('this is items', items);
+        console.log('current id', this.item_id);
+        // console.log('this is currentItem', items[1]);
+      }
+    });
   }
 }
