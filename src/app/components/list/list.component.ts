@@ -26,15 +26,6 @@ export class ListComponent implements OnInit {
       .subscribe(resp => {
 				this.response = resp['data'];
 				this.store.dispatch(new AddItemsAction(this.response));
-				// console.log("this is response", this.response);
-				console.log("this is data", resp['data']);
 			});
-			// this.response = [
-    //   {id: 0, name: 'joel'},
-    //   {id: 1, name: 'miguel'},
-    //   {id: 2, name: 'daniel'},
-    //   {id: 3, name: 'samael'},
-    //   {id: 4, name: 'jonuel'},
-    // ];
   }
 }

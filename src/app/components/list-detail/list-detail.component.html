@@ -1,2 +1,11 @@
 <h1>List detail component number</h1>
-<h1 *ngIf="current_item">this is current info: {{current_item.metodo_pago}}</h1>
+<div>
+	<ul *ngIf="current_item">
+		<li>{{current_item.metodo_pago}}</li>
+		<li>{{current_item.fecha}}</li>
+		<li>{{current_item.estado}}</li>
+		<li>{{current_item.pago}}</li>
+		<li>{{current_item.tercero}}</li>
+		<li>{{current_item.valor}}</li>
+	</ul>
+</div>

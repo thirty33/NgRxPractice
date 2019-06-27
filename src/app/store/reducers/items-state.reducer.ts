@@ -1,10 +1,12 @@
 import {ItemsState} from '../state/items-state';
+import {AppState} from '../state/app-state';
 import {AddItemsActionTypes, ItemsAction} from '../actions/items-state.actions';
 
 
 const initialItemsState : ItemsState = {
     items: []
 };
+
 
 export function itemsActionReducer(state: ItemsState = initialItemsState, action:ItemsAction) : ItemsState {
 	switch (action.type) {
@@ -15,3 +17,4 @@ export function itemsActionReducer(state: ItemsState = initialItemsState, action
 		}
 	}
 }
+

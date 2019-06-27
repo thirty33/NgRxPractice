@@ -24,13 +24,26 @@ export class ListDetailComponent implements OnInit {
 
   ngOnInit() {
     this.item_id = this.route.snapshot.paramMap.get('id');
-    this.store.pipe(select(selectItemById(+this.item_id)))
-      .subscribe(item => {
-        console.log("enter in suscribe");
-        if(item) {
-          this.current_item = item;
-          console.log('this is current item', item);
+    this.store.pipe(select(selectAllItems))
+      .subscribe(items => {
+        if(items) {
+          console.log("there are items", items);
+          this.getCurrentItem(+this.item_id);
+        }
+        else {
+          console.log("no items");
         }
       });
-  }
+    }
+    
+    getCurrentItem(id: number) {
+      this.store.pipe(select(selectItemById(id)))
+        .subscribe(item => {
+          console.log("enter in suscribe");
+          if(item) {
+            this.current_item = item;
+            console.log('this is current item', item);
+          }
+        });
+    }
 }
