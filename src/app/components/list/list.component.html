@@ -1,6 +1,6 @@
 <h1>ListItem</h1>
 <ul *ngIf="response">
-    <li *ngFor="let item of response; index as itemId">
-        <a [routerLink]="['/list-detail',itemId]">{{item.name}}</a>
+    <li *ngFor="let item of response.payments; index as itemId">
+        <a [routerLink]="['/list-detail',itemId]">{{item.metodo_pago}}</a>
     </li>
 </ul>

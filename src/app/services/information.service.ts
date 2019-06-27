@@ -21,21 +21,21 @@ export class InformationService {
 			const url = 'http://localhost/admin/frontend/web/index.php/consult-agp/consulta-historico-pagos';
 			return this.http.post<any>(url, httpOptions)
 				.pipe(
-						tap(_ => console.log('fetched paymentItems')),
-						catchError(this.handleError)
+					tap(_ => console.log('fetched paymentItems')),
+					catchError(this.handleError)
 				);
     }
 
     private handleError(error:HttpErrorResponse) {
 			if(error.error instanceof ErrorEvent) {
-							console.log('an error ocurred', error.error.message);
+				console.log('an error ocurred', error.error.message);
 			}
 			else {
-							console.log('Backend error', error.status);
-							console.log('client side error', error.error);
+				console.log('Backend error', error.status);
+				console.log('client side error', error.error);
 			}
 			return throwError(
-							'Smething wrong' + error.error
+				'Smething wrong' + error.error
 			);
     }
 	}

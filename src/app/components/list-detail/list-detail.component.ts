@@ -16,12 +16,7 @@ import {selectAllItems, selectItemById} from '../../store/selectors/items.select
 
 export class ListDetailComponent implements OnInit {
   item_id: any;
-  items: Object[] = [];
   current_item: Object;
-  // objects$: Observable<Object[]> = this.store.select(state => state.list);
-  objects$: Observable<Object[]>;
-  // objects$: Array<Object>;
-  count$: Observable<number>;
 
 	constructor(private route: ActivatedRoute,
     private _router: Router,
@@ -29,12 +24,13 @@ export class ListDetailComponent implements OnInit {
 
   ngOnInit() {
     this.item_id = this.route.snapshot.paramMap.get('id');
-    // this.store.pipe(select(selectAllItems))
-    //   .subscribe(res => this.items = Object.values(res));
-    // console.log('selector implementation', this.items);
-    this.store.pipe(select(selectItemById(this.item_id)))
-      .subscribe(item => this.current_item = item);
-    //   .subscribe(item => this.current_item = Object.values(item));
-    console.log('this is current item', this.current_item);
+    this.store.pipe(select(selectItemById(+this.item_id)))
+      .subscribe(item => {
+        console.log("enter in suscribe");
+        if(item) {
+          this.current_item = item;
+          console.log('this is current item', item);
+        }
+      });
   }
 }

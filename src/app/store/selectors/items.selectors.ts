@@ -22,5 +22,13 @@ export const selectAllItems = createSelector(
 
 export const selectItemById = (id) => createSelector(
 	selectItemsFromState, 
-	(items) =>  items[id]
-);
+	(items) =>  {
+		if(items) {
+			return items['payments'].find(item => {
+				return item.id === id;
+			});
+		}
+		else {
+			return [];
+		}
+});

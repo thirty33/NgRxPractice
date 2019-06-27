@@ -12,29 +12,29 @@ import {AppState} from '../../store/state/app-state';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-
+	response:Object[];
+	tableHeaders: Object[];
   constructor(private informationService : InformationService,
     private store : Store<AppState>) { }
-
-  response:Object[];
-  tableHeaders: Object[];
+    
   ngOnInit() {
     this.getPaymentItems();
   }
 
   getPaymentItems() {
-    // this.informationService.getPaymentItems()
-    //   .subscribe(resp =>  {
-    //     this.response = resp['data'];
-    //     this.store.dispatch(saveObjects({item : 4}));
-    // });
-    this.response = [
-      {id: 0, name: 'joel'},
-      {id: 1, name: 'miguel'},
-      {id: 2, name: 'daniel'},
-      {id: 3, name: 'samael'},
-      {id: 4, name: 'jonuel'},
-    ];
-    this.store.dispatch(new AddItemsAction(this.response));
+    this.informationService.getPaymentItems()
+      .subscribe(resp => {
+				this.response = resp['data'];
+				this.store.dispatch(new AddItemsAction(this.response));
+				// console.log("this is response", this.response);
+				console.log("this is data", resp['data']);
+			});
+			// this.response = [
+    //   {id: 0, name: 'joel'},
+    //   {id: 1, name: 'miguel'},
+    //   {id: 2, name: 'daniel'},
+    //   {id: 3, name: 'samael'},
+    //   {id: 4, name: 'jonuel'},
+    // ];
   }
 }
