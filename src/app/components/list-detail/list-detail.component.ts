@@ -32,6 +32,7 @@ export class ListDetailComponent implements OnInit {
         }
         else {
           console.log("no items");
+          this._router.navigate(['/not-found']);
         }
       });
     }

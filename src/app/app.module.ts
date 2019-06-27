@@ -9,17 +9,19 @@ import {ItemsModule} from './modules/items.module';
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {FatherComponent} from './components/father/father.component'; 
-import {ChildComponent} from './components/child/child.component'; 
-import {ListComponent} from './components/list/list.component'; 
-import {ListDetailComponent} from './components/list-detail/list-detail.component'; 
+import { FatherComponent } from './components/father/father.component'; 
+import { ChildComponent } from './components/child/child.component'; 
+import { ListComponent } from './components/list/list.component'; 
+import { ListDetailComponent } from './components/list-detail/list-detail.component'; 
+import { NotFoundComponent } from './components/not-found/not-found.component';  
 import { AppComponent } from './app.component';
 
 const appRoutes: Routes = [
   { path: 'father', component: FatherComponent },
   { path: 'child',  component: ChildComponent },
   { path: 'list',  component: ListComponent },
-  { path: 'list-detail/:id',  component: ListDetailComponent },
+  { path: 'list-detail/:id',  component: ListDetailComponent }, 
+  { path: 'not-found',  component: NotFoundComponent }, 
 ];
 
 @NgModule({
@@ -28,7 +30,8 @@ const appRoutes: Routes = [
     FatherComponent,
     ChildComponent,
     ListComponent,
-    ListDetailComponent
+    ListDetailComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
